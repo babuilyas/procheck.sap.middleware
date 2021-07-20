@@ -1,0 +1,34 @@
+
+**** Log file opened at 2021-07-18 21:50:31.648497 UTC+05:00 (Pakistan Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 8, Compiled on Apr 17 2021 03:23:42
+ CPIC library: 753.2020.03.230 version 3, NI library: 40, Kernel Release: 753 Patch Level 814
+ Current working directory: C:\Users\m.ilyas\Desktop\Procheck_Project\procheck.sap.middleware, Program: node
+ Hardware: PC with Windows NT 4x AMD64 Level 6 (Mod 142 Step 9), Operating_system: Windows NT 10.0
+ Hostname: DESKTOP-3J4CPO4, IP address: 192.168.1.191, IPv6 address: fe80::c420:b191:df6b:85be
+
+2021-07-18 21:50:31.648900 [01460] >> Info entry
+	Did not find config file C:\Users\m.ilyas\Desktop\Procheck_Project\procheck.sap.middleware\sapnwrfc.ini.
+
+**** Log file opened at 2021-07-20 14:08:37.247847 UTC+05:00 (Pakistan Standard Time), Encoding UTF-8
+NW RFC Library: SDK variant, Release 750 Patch Level 8, Compiled on Apr 17 2021 03:23:42
+ CPIC library: 753.2020.03.230 version 3, NI library: 40, Kernel Release: 753 Patch Level 814
+ Current working directory: C:\Users\m.ilyas\Desktop\Procheck_Project\procheck.sap.middleware, Program: node
+ Hardware: PC with Windows NT 4x AMD64 Level 6 (Mod 142 Step 9), Operating_system: Windows NT 10.0
+ Hostname: DESKTOP-3J4CPO4, IP address: 192.168.1.191, IPv6 address: fe80::c420:b191:df6b:85be
+
+2021-07-20 14:08:37.249376 [13336] >> Error entry
+	[Handle: 2203047391056	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host DESKTOP-3J4CPO4 with Unicode
+ERROR       timeout occured
+TIME        Tue Jul 20 14:08:37 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -5
+MODULE      D:/depot/bas/753_REL/src/base/ni/nibuf.cpp
+LINE        4717
+DETAIL      NiBufIConnect: route connect
+            '/H/125.209.118.234/H/172.16.0.185/H/192.168.64.163' timeout
+COUNTER     2
+
