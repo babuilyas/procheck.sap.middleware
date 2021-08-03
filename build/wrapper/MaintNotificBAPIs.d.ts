@@ -1,0 +1,9 @@
+import { Connection, ICallback } from '../api/SAPMiddleware';
+export declare type Import = {
+    SECONDS: number;
+    BUSY_WAITING: string;
+    FORW: string;
+    FORW_SECONDS: number;
+    FORW_BUSY_WAITING: string;
+};
+export declare const NotifCreate: (con: Connection, params: any, success?: ICallback | undefined, failure?: ICallback | undefined) => Promise<boolean>;
