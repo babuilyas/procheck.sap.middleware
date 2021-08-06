@@ -24,5 +24,7 @@ export declare class Connection {
     private _Client;
     constructor(dest: ConnectionParameters);
     get Client(): Client;
+    Connect: () => Promise<Client> | void;
+    Close: (callback?: Function | undefined) => Promise<void> | void;
 }
 export { Client };

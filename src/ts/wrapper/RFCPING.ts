@@ -19,8 +19,6 @@ export const call = (
   failure?: ICallback
 ) =>
   new Promise<boolean>((resolve, reject) => {
-    con.Client.open();
-
     var results = con.Client.call(RfcName, { ...params })
       .then((rfcobj) => {
         if (success !== undefined) success(true);

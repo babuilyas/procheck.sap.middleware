@@ -12,15 +12,28 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.call = void 0;
-var RfcName = 'RFC_PING_AND_WAIT';
+/**
+ * @param {Import}  params - A .
+ */
 var call = function (con, params, success, failure) {
     return new Promise(function (resolve, reject) {
-        con.Client.open();
-        var results = con.Client.call(RfcName, __assign({}, params))
+        // con.Client.open();
+        if (!params.P_EQUNR)
+            reject('Equipment number is missing!');
+        if (!params.P_REASON)
+            reject('Reason is missing!');
+        var RfcName = 'ZWQ_PM_ORD_NOTIFY_BAPI';
+        con.Client.call(RfcName, __assign({}, params))
             .then(function (rfcobj) {
-            if (success !== undefined)
-                success(true);
-            resolve(true);
+            var order_number;
+            if (rfcobj.P_STATUS) {
+                order_number = rfcobj.P_STATUS;
+                if (success !== undefined)
+                    success(order_number);
+                resolve(order_number);
+            }
+            else
+                reject('Equipment Number is correct!');
         })
             .catch(function (reason) {
             if (failure !== undefined)
@@ -30,4 +43,5 @@ var call = function (con, params, success, failure) {
     });
 };
 exports.call = call;
-//# sourceMappingURL=RFCPING.js.map
+//export { NOTIFHEADER }
+//# sourceMappingURL=ORD_NOTIFICATION.js.map

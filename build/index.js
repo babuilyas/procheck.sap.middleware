@@ -26,4 +26,5 @@ exports.NotificationAPI = exports.PingAPI = void 0;
 // wrapper exports
 __exportStar(require("./api/SAPMiddleware"), exports);
 exports.PingAPI = __importStar(require("./wrapper/RFCPING"));
-exports.NotificationAPI = __importStar(require("./wrapper/MaintNotificBAPIs"));
+exports.NotificationAPI = __importStar(require("./wrapper/ORD_NOTIFICATION"));
+//# sourceMappingURL=index.js.map

@@ -22,6 +22,13 @@ var ExitCode;
 })(ExitCode = exports.ExitCode || (exports.ExitCode = {}));
 var Connection = /** @class */ (function () {
     function Connection(dest) {
+        var _this = this;
+        this.Connect = function () {
+            return _this._Client.connect();
+        };
+        this.Close = function (callback) {
+            return _this._Client.close(callback);
+        };
         var xRfcPara = __assign({}, dest);
         this._Client = new node_rfc_1.Client(xRfcPara);
     }
@@ -35,3 +42,4 @@ var Connection = /** @class */ (function () {
     return Connection;
 }());
 exports.Connection = Connection;
+//# sourceMappingURL=SAPMiddleware.js.map

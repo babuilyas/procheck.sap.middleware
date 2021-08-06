@@ -31,3 +31,4 @@ var NotifCreate = function (con, params, success, failure) {
 };
 exports.NotifCreate = NotifCreate;
 //export { NOTIFHEADER }
+//# sourceMappingURL=MaintNotificBAPIs.js.map
