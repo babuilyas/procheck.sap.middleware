@@ -1,0 +1,25 @@
+@startuml asdf
+skinparam BackgroundColor transparent
+skinparam componentStyle uml2
+component "Procheck Platform" {
+
+   component Scheduler {
+      [Node Module]  
+   }
+
+   database Database {
+       [anyDB]
+   }
+
+   [Web Service] 
+}
+
+[anyDB] ..> [Node Module]
+[Web Service] ..> [Node Module]
+[Node Module]  --> Internet
+
+cloud "Customer System"{
+    [SAPRouter] --> Internet
+}
+
+@enduml

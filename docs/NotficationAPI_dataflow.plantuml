@@ -1,0 +1,67 @@
+@startuml
+title "SAP Middleware Dataflow Diagram"
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10
+
+box "Client's Plant"
+collections iot as "Equipments"
+end box
+
+box "Procheck Platform"
+queue q as "Listener"
+database db as "Database"
+control job as "Events\nScheduler"
+participant iotd as "IoT\nInterface"
+participant con as "SAP\nMiddleware"
+end box
+
+box "Client' SAP System"
+participant sap << (S,#ADD1B2) >>
+end box
+
+group loop
+iot ->o q : 
+activate q
+q -> db : store
+deactivate q
+activate db
+db --> q
+deactivate db
+end group
+
+
+
+group Design Time
+iotd -> con : Send Data
+con -> db : Fetch Credentials
+db --> con : 
+con -> sap : Establish Connection
+sap --> con : Sucess 
+con -> sap : NotificationAPI
+sap --> con : Callback : Order Number
+con -> iotd : 
+sap --> con : Callback : Error
+con -> iotd : 
+sap X--> con : Failed : Error 
+con -> iotd : 
+con -> con : Close Connection
+end group
+
+group Background Job
+job o->o db : find/detect events
+job o-> con : fires events e.g. \n1. breakdown \n2.performance
+con -> db : Fetch Credentials
+db --> con : 
+con -> sap : Establish Connection
+sap --> con : Success
+con -> sap : NotificationAPI
+sap --> con : Callback : Order Number
+con -> job : Update Job Status
+sap --> con : Callback : Error
+con -> job : Update Job Status
+sap X--> con : Failed : Error
+con -> job : Update Job Status
+con -> con : Close Connection
+end group
+
+@enduml

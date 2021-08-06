@@ -1,0 +1,21 @@
+@startuml
+title Diagram
+left to right direction
+skinparam packageStyle rectangle
+actor Procheck_Developer as "Procheck Developer"
+actor Procheck_QAS as "Procheck QAS" 
+actor Ilyas
+rectangle "Procheck Platform" {
+Procheck_QAS --> [PRD System] : Final Test
+rectangle "Development System" {
+Procheck_QAS --> [DEV System] : Functional Integration Test
+Procheck_Developer -> [Scheduler] : R&D or Configure if already available
+Ilyas --> [Node Module] : R&D 
+Ilyas --> [Node Module] : Unit Test
+}
+}
+
+[Node Module] --> [Scheduler]
+
+
+@enduml
